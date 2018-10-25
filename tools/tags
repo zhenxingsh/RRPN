@@ -1,0 +1,237 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CLASSES	demo.py	/^CLASSES = ('__background__',$/;"	kind:variable	line:27
+CLASSES	rotation_demo.py	/^CLASSES = ('__background__',$/;"	kind:variable	line:37
+CLASSES	rrpn_test_api.py	/^CLASSES = ('__background__',$/;"	kind:variable	line:34
+CLASSES	service_demo.py	/^CLASSES = ('__background__',$/;"	kind:variable	line:34
+NETS	demo.py	/^NETS = {'vgg16': ('VGG16',$/;"	kind:variable	line:34
+NETS	rotation_demo.py	/^    NETS = {$/;"	kind:variable	line:535
+NETS	service_demo.py	/^NETS = {'vgg16': ('VGG16',$/;"	kind:variable	line:37
+SVMClassTrainer	train_svms.py	/^class SVMClassTrainer(object):$/;"	kind:class	line:192
+SVMTrainer	train_svms.py	/^class SVMTrainer(object):$/;"	kind:class	line:29
+__init__	train_svms.py	/^    def __init__(self, cls, dim, feature_scale=1.0,$/;"	kind:member	line:195
+__init__	train_svms.py	/^    def __init__(self, net, imdb):$/;"	kind:member	line:35
+__init__.py	__init__.py	1;"	kind:file	line:1
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[0:im_height\/2,0:im_width\/2,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:105
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[0:im_height\/2,im_width\/2:,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:112
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[0:im_height\/2,im_width\/4:3*im_width\/4,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:121
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[im_height\/2:,0:im_width\/2,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:108
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[im_height\/2:,im_width\/2:,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:116
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[im_height\/2:,im_width\/4:3*im_width\/4,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:125
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[im_height\/4:3*im_height\/4,0:im_width\/2,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:130
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[im_height\/4:3*im_height\/4,im_width\/2:,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:134
+_dets	rctw_multiscale_test_net.py	/^	_dets = rrpn_test_api.multiscale_demo(net, im[im_height\/4:3*im_height\/4,im_width\/4:3*im_width\/4,:], gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:139
+_get_feature_scale	train_svms.py	/^    def _get_feature_scale(self, num_images=100):$/;"	kind:member	line:49
+_get_pos_counts	train_svms.py	/^    def _get_pos_counts(self):$/;"	kind:member	line:72
+_init_caffe	train_faster_rcnn_alt_opt.py	/^def _init_caffe(cfg):$/;"	kind:function	line:93
+_init_paths.py	_init_paths.py	1;"	kind:file	line:1
+add_path	_init_paths.py	/^def add_path(path):$/;"	kind:function	line:13
+alloc_pos	train_svms.py	/^    def alloc_pos(self, count):$/;"	kind:member	line:215
+append_neg_and_retrain	train_svms.py	/^    def append_neg_and_retrain(self, feat=None, force=False):$/;"	kind:member	line:259
+append_pos	train_svms.py	/^    def append_pos(self, feat):$/;"	kind:member	line:219
+args	demo.py	/^    args = parse_args()$/;"	kind:variable	line:118
+args	eval_recall.py	/^    args = parse_args()$/;"	kind:variable	line:32
+args	rctw_multiscale_test_net.py	/^    args = parse_args()$/;"	kind:variable	line:67
+args	reval.py	/^    args = parse_args()$/;"	kind:variable	line:62
+args	rotation_demo.py	/^    args = parse_args()$/;"	kind:variable	line:545
+args	rpn_generate.py	/^    args = parse_args()$/;"	kind:variable	line:56
+args	test_net.py	/^    args = parse_args()$/;"	kind:variable	line:62
+args	train_faster_rcnn_alt_opt.py	/^    args = parse_args()$/;"	kind:variable	line:204
+args	train_svms.py	/^    args = parse_args()$/;"	kind:variable	line:317
+caffe_path	_init_paths.py	/^caffe_path = osp.join(this_dir, '..', 'caffe-fast-rcnn', 'python')$/;"	kind:variable	line:20
+caffemodel	demo.py	/^    caffemodel = os.path.join(cfg.DATA_DIR, 'faster_rcnn_models',$/;"	kind:variable	line:122
+caffemodel	rotation_demo.py	/^    caffemodel = os.path.join(cfg.DATA_DIR, 'faster_rcnn_models',$/;"	kind:variable	line:556
+candidate_boxes	eval_recall.py	/^        candidate_boxes = raw_data$/;"	kind:variable	line:47
+candidate_boxes	eval_recall.py	/^    candidate_boxes = None$/;"	kind:variable	line:42
+cfg	train_faster_rcnn_alt_opt.py	/^            cfg=cfg)$/;"	kind:variable	line:238
+cfg	train_faster_rcnn_alt_opt.py	/^            cfg=cfg)$/;"	kind:variable	line:288
+cfg	train_faster_rcnn_alt_opt.py	/^            cfg=cfg,$/;"	kind:variable	line:252
+cfg	train_faster_rcnn_alt_opt.py	/^            cfg=cfg,$/;"	kind:variable	line:270
+cfg	train_faster_rcnn_alt_opt.py	/^            cfg=cfg,$/;"	kind:variable	line:302
+cfg	train_faster_rcnn_alt_opt.py	/^            cfg=cfg,$/;"	kind:variable	line:320
+combined_roidb	train_net.py	/^def combined_roidb(imdb_names):$/;"	kind:function	line:66
+compress_net.py	compress_net.py	1;"	kind:file	line:1
+compress_weights	compress_net.py	/^def compress_weights(W, l):$/;"	kind:function	line:38
+cood_dir	rotation_demo.py	/^    cood_dir = ".\/result"$/;"	kind:variable	line:590
+demo	demo.py	/^def demo(net, image_name):$/;"	kind:function	line:72
+demo	rotation_demo.py	/^def demo(net, image_name, gt_boxes, result_dir, conf = 0.75):$/;"	kind:function	line:40
+demo	rrpn_test_api.py	/^def demo(net, image_name, gt_boxes, result_dir, ori_result_dir, conf = 0.75):$/;"	kind:function	line:37
+demo	service_demo.py	/^def demo(net, image_name, output_name):#, result_dir, ori_result_dir):$/;"	kind:function	line:103
+demo.py	demo.py	1;"	kind:file	line:1
+demo_dir	rotation_demo.py	/^    demo_dir = '.\/data\/demo'$/;"	kind:variable	line:582
+det_fusion	joint_test.py	/^def det_fusion(result_queue):$/;"	kind:function	line:367
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:106
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:110
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:114
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:119
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:123
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:128
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:132
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:137
+dets	rctw_multiscale_test_net.py	/^	dets = np.vstack((dets,_dets))$/;"	kind:variable	line:142
+dets	rctw_multiscale_test_net.py	/^	dets = rrpn_test_api.multiscale_demo(net, im, gt_boxes[im_idx], args.imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,args.gpu_id)$/;"	kind:variable	line:103
+dets	rctw_multiscale_test_net.py	/^        dets = dets[keep, :]$/;"	kind:variable	line:144
+eval_recall.py	eval_recall.py	1;"	kind:file	line:1
+fast_rcnn_stage1_out	train_faster_rcnn_alt_opt.py	/^    fast_rcnn_stage1_out = mp_queue.get()$/;"	kind:variable	line:274
+fast_rcnn_stage2_out	train_faster_rcnn_alt_opt.py	/^    fast_rcnn_stage2_out = mp_queue.get()$/;"	kind:variable	line:324
+filename	eval_recall.py	/^        filename = 'debug\/stage1_rpn_voc_2007_test.mat'$/;"	kind:variable	line:45
+filename	train_svms.py	/^    filename = '{}\/{}.caffemodel'.format(out_dir, out)$/;"	kind:variable	line:351
+final_path	train_faster_rcnn_alt_opt.py	/^    final_path = os.path.join($/;"	kind:variable	line:328
+from_dets	reval.py	/^def from_dets(imdb_name, output_dir, args):$/;"	kind:function	line:45
+fusion_num	joint_test.py	/^def fusion_num(fusion_file, result_dir):$/;"	kind:function	line:838
+get_bot_img	joint_test.py	/^def get_bot_img(mode):$/;"	kind:function	line:910
+get_pos_examples	train_svms.py	/^    def get_pos_examples(self):$/;"	kind:member	line:86
+get_roidb	train_faster_rcnn_alt_opt.py	/^def get_roidb(imdb_name, rpn_file=None):$/;"	kind:function	line:60
+get_roidb	train_net.py	/^    def get_roidb(imdb_name):$/;"	kind:function	line:67
+get_solvers	train_faster_rcnn_alt_opt.py	/^def get_solvers(net_name):$/;"	kind:function	line:70
+get_test_coco_img	joint_test.py	/^def get_test_coco_img(mode):$/;"	kind:function	line:874
+gt_boxes	rctw_multiscale_test_net.py	/^    gt_boxes = []$/;"	kind:variable	line:89
+gt_boxes	rotation_demo.py	/^    gt_boxes = []	$/;"	kind:variable	line:580
+im	demo.py	/^    im = 128 * np.ones((300, 500, 3), dtype=np.uint8)$/;"	kind:variable	line:140
+im	rctw_multiscale_test_net.py	/^    	im = cv2.imread(im_names[im_idx])$/;"	kind:variable	line:100
+im	rotation_demo.py	/^    im = 128 * np.ones((300, 500, 3), dtype=np.uint8)$/;"	kind:variable	line:575
+im_height	rctw_multiscale_test_net.py	/^	im_height =im.shape[0]$/;"	kind:variable	line:101
+im_names	demo.py	/^    im_names = ['000456.jpg', '000542.jpg', '001150.jpg',$/;"	kind:variable	line:144
+im_names	rctw_multiscale_test_net.py	/^    im_names = []$/;"	kind:variable	line:88
+im_names	rotation_demo.py	/^    im_names = []$/;"	kind:variable	line:579
+im_width	rctw_multiscale_test_net.py	/^	im_width = im.shape[1]$/;"	kind:variable	line:102
+imdb	eval_recall.py	/^    imdb = get_imdb(args.imdb_name)$/;"	kind:variable	line:37
+imdb	rpn_generate.py	/^    imdb = get_imdb(args.imdb_name)$/;"	kind:variable	line:84
+imdb	test_net.py	/^    imdb = get_imdb(args.imdb_name)$/;"	kind:variable	line:86
+imdb	train_svms.py	/^    imdb = get_imdb(args.imdb_name)$/;"	kind:variable	line:340
+imdb_boxes	rpn_generate.py	/^    imdb_boxes = imdb_proposals(net, imdb)$/;"	kind:variable	line:85
+imdb_name	reval.py	/^    imdb_name = args.imdb_name$/;"	kind:variable	line:65
+imdb_name	train_faster_rcnn_alt_opt.py	/^            imdb_name=args.imdb_name,$/;"	kind:variable	line:234
+imdb_name	train_faster_rcnn_alt_opt.py	/^            imdb_name=args.imdb_name,$/;"	kind:variable	line:250
+imdb_name	train_faster_rcnn_alt_opt.py	/^            imdb_name=args.imdb_name,$/;"	kind:variable	line:266
+imdb_name	train_faster_rcnn_alt_opt.py	/^            imdb_name=args.imdb_name,$/;"	kind:variable	line:284
+imdb_name	train_faster_rcnn_alt_opt.py	/^            imdb_name=args.imdb_name,$/;"	kind:variable	line:300
+imdb_name	train_faster_rcnn_alt_opt.py	/^            imdb_name=args.imdb_name,$/;"	kind:variable	line:316
+init_model	train_faster_rcnn_alt_opt.py	/^            init_model=args.pretrained_model,$/;"	kind:variable	line:235
+init_model	train_faster_rcnn_alt_opt.py	/^            init_model=args.pretrained_model,$/;"	kind:variable	line:267
+init_model	train_faster_rcnn_alt_opt.py	/^            init_model=str(fast_rcnn_stage1_out['model_path']),$/;"	kind:variable	line:285
+init_model	train_faster_rcnn_alt_opt.py	/^            init_model=str(rpn_stage2_out['model_path']),$/;"	kind:variable	line:317
+initialize_net	train_svms.py	/^    def initialize_net(self):$/;"	kind:member	line:114
+joint_test.py	joint_test.py	1;"	kind:file	line:1
+joint_test_rrpn_ICDAR2015	joint_test.py	/^def joint_test_rrpn_ICDAR2015(day, exp, net):$/;"	kind:function	line:823
+joint_test_rrpn_MSRA	joint_test.py	/^def joint_test_rrpn_MSRA(day, exp):$/;"	kind:function	line:746
+keep	rctw_multiscale_test_net.py	/^	keep = rotate_gpu_nms(dets, 0.3,args.gpu_id) # D$/;"	kind:variable	line:143
+lib_path	_init_paths.py	/^lib_path = osp.join(this_dir, '..', 'lib')$/;"	kind:variable	line:24
+main	compress_net.py	/^def main():$/;"	kind:function	line:61
+max_iters	train_faster_rcnn_alt_opt.py	/^            max_iters=max_iters[0],$/;"	kind:variable	line:237
+max_iters	train_faster_rcnn_alt_opt.py	/^            max_iters=max_iters[1],$/;"	kind:variable	line:269
+max_iters	train_faster_rcnn_alt_opt.py	/^            max_iters=max_iters[2],$/;"	kind:variable	line:287
+max_iters	train_faster_rcnn_alt_opt.py	/^            max_iters=max_iters[3],$/;"	kind:variable	line:319
+modelHome	rctw_multiscale_test_net.py	/^    modelHome = args.caffemodel$/;"	kind:variable	line:82
+mp_kwargs	train_faster_rcnn_alt_opt.py	/^    mp_kwargs = dict($/;"	kind:variable	line:232
+mp_kwargs	train_faster_rcnn_alt_opt.py	/^    mp_kwargs = dict($/;"	kind:variable	line:248
+mp_kwargs	train_faster_rcnn_alt_opt.py	/^    mp_kwargs = dict($/;"	kind:variable	line:264
+mp_kwargs	train_faster_rcnn_alt_opt.py	/^    mp_kwargs = dict($/;"	kind:variable	line:282
+mp_kwargs	train_faster_rcnn_alt_opt.py	/^    mp_kwargs = dict($/;"	kind:variable	line:298
+mp_kwargs	train_faster_rcnn_alt_opt.py	/^    mp_kwargs = dict($/;"	kind:variable	line:314
+mp_queue	train_faster_rcnn_alt_opt.py	/^    mp_queue = mp.Queue()$/;"	kind:variable	line:223
+multiscale_demo	rotation_demo.py	/^def multiscale_demo(net, im, gt_boxes, imdb_name, result_dir, ori_result_dir,left,top,right,bottom, conf = 0.75,device_id=0,):$/;"	kind:function	line:99
+net	demo.py	/^    net = caffe.Net(prototxt, caffemodel, caffe.TEST)$/;"	kind:variable	line:135
+net	rctw_multiscale_test_net.py	/^    net = caffe.Net(args.prototxt, modelHome+'\/vgg16_faster_rcnn_iter_450000.caffemodel', caffe.TEST)$/;"	kind:variable	line:98
+net	rotation_demo.py	/^    net = caffe.Net(prototxt, caffemodel, caffe.TEST)$/;"	kind:variable	line:570
+net	rpn_generate.py	/^    net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)$/;"	kind:variable	line:81
+net	test_net.py	/^    net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)$/;"	kind:variable	line:83
+net	train_svms.py	/^    net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)$/;"	kind:variable	line:335
+out	train_svms.py	/^    out = os.path.splitext(os.path.basename(args.caffemodel))[0] + '_svm'$/;"	kind:variable	line:337
+out_dir	train_svms.py	/^    out_dir = os.path.dirname(args.caffemodel)$/;"	kind:variable	line:338
+outputHome	rctw_multiscale_test_net.py	/^    outputHome = osp.abspath(osp.join(cfg.ROOT_DIR, 'output', cfg.EXP_DIR,args.imdb_name+'result'))$/;"	kind:variable	line:83
+output_dir	rctw_multiscale_test_net.py	/^    output_dir = outputHome$/;"	kind:variable	line:90
+output_dir	reval.py	/^    output_dir = os.path.abspath(args.output_dir[0])$/;"	kind:variable	line:64
+output_dir	rpn_generate.py	/^    output_dir = get_output_dir(imdb, net)$/;"	kind:variable	line:87
+over_bound_handle	rotation_demo.py	/^def over_bound_handle(pts, img_height, img_width):$/;"	kind:function	line:434
+over_bound_handle	rrpn_test_api.py	/^def over_bound_handle(pts, img_height, img_width):$/;"	kind:function	line:296
+p	train_faster_rcnn_alt_opt.py	/^    p = mp.Process(target=rpn_generate, kwargs=mp_kwargs)$/;"	kind:variable	line:254
+p	train_faster_rcnn_alt_opt.py	/^    p = mp.Process(target=rpn_generate, kwargs=mp_kwargs)$/;"	kind:variable	line:304
+p	train_faster_rcnn_alt_opt.py	/^    p = mp.Process(target=train_fast_rcnn, kwargs=mp_kwargs)$/;"	kind:variable	line:272
+p	train_faster_rcnn_alt_opt.py	/^    p = mp.Process(target=train_fast_rcnn, kwargs=mp_kwargs)$/;"	kind:variable	line:322
+p	train_faster_rcnn_alt_opt.py	/^    p = mp.Process(target=train_rpn, kwargs=mp_kwargs)$/;"	kind:variable	line:239
+p	train_faster_rcnn_alt_opt.py	/^    p = mp.Process(target=train_rpn, kwargs=mp_kwargs)$/;"	kind:variable	line:289
+parse_args	compress_net.py	/^def parse_args():$/;"	kind:function	line:18
+parse_args	demo.py	/^def parse_args():$/;"	kind:function	line:100
+parse_args	eval_recall.py	/^def parse_args():$/;"	kind:function	line:10
+parse_args	rctw_multiscale_test_net.py	/^def parse_args():$/;"	kind:function	line:27
+parse_args	reval.py	/^def parse_args():$/;"	kind:function	line:20
+parse_args	rotation_demo.py	/^def parse_args():$/;"	kind:function	line:518
+parse_args	rpn_generate.py	/^def parse_args():$/;"	kind:function	line:23
+parse_args	rrpn_test_api.py	/^def parse_args():$/;"	kind:function	line:380
+parse_args	service_demo.py	/^def parse_args():$/;"	kind:function	line:148
+parse_args	test_net.py	/^def parse_args():$/;"	kind:function	line:22
+parse_args	train_faster_rcnn_alt_opt.py	/^def parse_args():$/;"	kind:function	line:29
+parse_args	train_net.py	/^def parse_args():$/;"	kind:function	line:29
+parse_args	train_svms.py	/^def parse_args():$/;"	kind:function	line:282
+post_merge	rotation_demo.py	/^def post_merge(result_file):$/;"	kind:function	line:236
+post_merge	rrpn_test_api.py	/^def post_merge(result_file):$/;"	kind:function	line:101
+prototxt	demo.py	/^    prototxt = os.path.join(cfg.MODELS_DIR, NETS[args.demo_net][0],$/;"	kind:variable	line:120
+prototxt	rotation_demo.py	/^	prototxt = os.path.join(cfg.RRPN_MODELS_DIR, NETS[args.demo_net][0],$/;"	kind:variable	line:550
+prototxt	rotation_demo.py	/^    prototxt = os.path.join(cfg.MODELS_DIR, NETS[args.demo_net][0],$/;"	kind:variable	line:547
+pts	rrpn_test_api.py	/^    pts = [[100,-5],[200,100],[200,200],[-5,100]]$/;"	kind:variable	line:397
+pts	service_demo.py	/^    pts = [[100,-5],[200,100],[200,200],[-5,100]]$/;"	kind:variable	line:165
+queue	train_faster_rcnn_alt_opt.py	/^            queue=mp_queue,$/;"	kind:variable	line:233
+queue	train_faster_rcnn_alt_opt.py	/^            queue=mp_queue,$/;"	kind:variable	line:249
+queue	train_faster_rcnn_alt_opt.py	/^            queue=mp_queue,$/;"	kind:variable	line:265
+queue	train_faster_rcnn_alt_opt.py	/^            queue=mp_queue,$/;"	kind:variable	line:283
+queue	train_faster_rcnn_alt_opt.py	/^            queue=mp_queue,$/;"	kind:variable	line:299
+queue	train_faster_rcnn_alt_opt.py	/^            queue=mp_queue,$/;"	kind:variable	line:315
+raw_data	eval_recall.py	/^        raw_data = sio.loadmat(filename)['aboxes'].ravel()$/;"	kind:variable	line:46
+rctw_multiscale_test_net.py	rctw_multiscale_test_net.py	1;"	kind:file	line:1
+recall_at	eval_recall.py	/^    def recall_at(t):$/;"	kind:function	line:54
+reval.py	reval.py	1;"	kind:file	line:1
+roidb	rctw_multiscale_test_net.py	/^    roidb = get_ICDAR_RCTW17_10Fold("test")$/;"	kind:variable	line:87
+rot_pts	rotation_demo.py	/^def rot_pts(det):$/;"	kind:function	line:445
+rot_pts	rrpn_test_api.py	/^def rot_pts(det):$/;"	kind:function	line:307
+rotation_demo.py	rotation_demo.py	1;"	kind:file	line:1
+rpn_file	rpn_generate.py	/^    rpn_file = os.path.join(output_dir, net.name + '_rpn_proposals.pkl')$/;"	kind:variable	line:88
+rpn_file	train_faster_rcnn_alt_opt.py	/^            rpn_file=rpn_stage1_out['proposal_path'])$/;"	kind:variable	line:271
+rpn_file	train_faster_rcnn_alt_opt.py	/^            rpn_file=rpn_stage2_out['proposal_path'])$/;"	kind:variable	line:321
+rpn_generate	train_faster_rcnn_alt_opt.py	/^def rpn_generate(queue=None, imdb_name=None, rpn_model_path=None, cfg=None,$/;"	kind:function	line:137
+rpn_generate.py	rpn_generate.py	1;"	kind:file	line:1
+rpn_model_path	train_faster_rcnn_alt_opt.py	/^            rpn_model_path=str(rpn_stage1_out['model_path']),$/;"	kind:variable	line:251
+rpn_model_path	train_faster_rcnn_alt_opt.py	/^            rpn_model_path=str(rpn_stage2_out['model_path']),$/;"	kind:variable	line:301
+rpn_stage1_out	train_faster_rcnn_alt_opt.py	/^    rpn_stage1_out = mp_queue.get()$/;"	kind:variable	line:241
+rpn_stage2_out	train_faster_rcnn_alt_opt.py	/^    rpn_stage2_out = mp_queue.get()$/;"	kind:variable	line:291
+rpn_test_prototxt	train_faster_rcnn_alt_opt.py	/^            rpn_test_prototxt=rpn_test_prototxt)$/;"	kind:variable	line:253
+rpn_test_prototxt	train_faster_rcnn_alt_opt.py	/^            rpn_test_prototxt=rpn_test_prototxt)$/;"	kind:variable	line:303
+rrpn_test_BOT	joint_test.py	/^def rrpn_test_BOT(day, exp, model_name, mode):$/;"	kind:function	line:683
+rrpn_test_BOT	joint_test.py	/^def rrpn_test_BOT(day, exp, model_name, mode):$/;"	kind:function	line:760
+rrpn_test_COCOTEXT	joint_test.py	/^def rrpn_test_COCOTEXT(day, exp, model_name, mode):$/;"	kind:function	line:621
+rrpn_test_ICDAR2013	joint_test.py	/^def rrpn_test_ICDAR2013(day, exp, model_name, mode, net = "VGG16"):$/;"	kind:function	line:494
+rrpn_test_ICDAR2013_ch1	joint_test.py	/^def rrpn_test_ICDAR2013_ch1(day, exp, model_name, mode):$/;"	kind:function	line:558
+rrpn_test_ICDAR2015	joint_test.py	/^def rrpn_test_ICDAR2015(day, exp, model_name, mode, net = "VGG16"):$/;"	kind:function	line:388
+rrpn_test_ICDAR2015_modelfusion	joint_test.py	/^def rrpn_test_ICDAR2015_modelfusion(models, mode):$/;"	kind:function	line:244
+rrpn_test_ICDAR2015_multiScale	joint_test.py	/^def rrpn_test_ICDAR2015_multiScale(day, exp, model_name, mode):$/;"	kind:function	line:118
+rrpn_test_MSRA	joint_test.py	/^def rrpn_test_MSRA(day, exp, model_name, mode):$/;"	kind:function	line:10
+rrpn_test_api.py	rrpn_test_api.py	1;"	kind:file	line:1
+rrpn_test_crop	rotation_demo.py	/^def rrpn_test_crop(day, exp, model_name, mode, gpu_id):$/;"	kind:function	line:143
+service_demo.py	service_demo.py	1;"	kind:file	line:1
+solver	train_faster_rcnn_alt_opt.py	/^            solver=solvers[0],$/;"	kind:variable	line:236
+solver	train_faster_rcnn_alt_opt.py	/^            solver=solvers[1],$/;"	kind:variable	line:268
+solver	train_faster_rcnn_alt_opt.py	/^            solver=solvers[2],$/;"	kind:variable	line:286
+solver	train_faster_rcnn_alt_opt.py	/^            solver=solvers[3],$/;"	kind:variable	line:318
+test_net.py	test_net.py	1;"	kind:file	line:1
+this_dir	_init_paths.py	/^this_dir = osp.dirname(__file__)$/;"	kind:variable	line:17
+train	train_svms.py	/^    def train(self):$/;"	kind:member	line:164
+train	train_svms.py	/^    def train(self):$/;"	kind:member	line:224
+train_fast_rcnn	train_faster_rcnn_alt_opt.py	/^def train_fast_rcnn(queue=None, imdb_name=None, init_model=None, solver=None,$/;"	kind:function	line:173
+train_faster_rcnn_alt_opt.py	train_faster_rcnn_alt_opt.py	1;"	kind:file	line:1
+train_net.py	train_net.py	1;"	kind:file	line:1
+train_rpn	train_faster_rcnn_alt_opt.py	/^def train_rpn(queue=None, imdb_name=None, init_model=None, solver=None,$/;"	kind:function	line:105
+train_svms.py	train_svms.py	1;"	kind:file	line:1
+train_with_hard_negatives	train_svms.py	/^    def train_with_hard_negatives(self):$/;"	kind:member	line:135
+update_net	train_svms.py	/^    def update_net(self, cls_ind, w, b):$/;"	kind:member	line:131
+vis_detections	demo.py	/^def vis_detections(im, class_name, dets, thresh=0.5):$/;"	kind:function	line:40
+vis_detections	service_demo.py	/^def vis_detections(im, class_name, dets, output_name, thresh=0.5):$/;"	kind:function	line:46
+write_result	rotation_demo.py	/^def write_result(im_file, dets, threshold, result_dir, im_height, im_width):$/;"	kind:function	line:490
+write_result	rrpn_test_api.py	/^def write_result(im_file, dets, threshold, result_dir, im_height, im_width):$/;"	kind:function	line:352
+write_result_ICDAR	rotation_demo.py	/^def write_result_ICDAR(im_file, dets, threshold, result_dir, height, width):$/;"	kind:function	line:263
+write_result_ICDAR	rrpn_test_api.py	/^def write_result_ICDAR(im_file, dets, threshold, result_dir, height, width):$/;"	kind:function	line:128
+write_result_ICDAR2013	rotation_demo.py	/^def write_result_ICDAR2013(im_file, dets, threshold, result_dir, height, width):$/;"	kind:function	line:353
+write_result_ICDAR2013	rrpn_test_api.py	/^def write_result_ICDAR2013(im_file, dets, threshold, result_dir, height, width):$/;"	kind:function	line:215

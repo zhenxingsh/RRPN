@@ -22,12 +22,12 @@ from utils.timer import Timer
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io as sio
-import caffe, os, sys, cv2
+import caffe, os, sys,cv2
 import argparse
 import math
 from rotation.data_extractor import get_rroidb, test_rroidb, get_MSRA
-reload(cv2)
-# from eval.MSRA_eval import eval as MSRA_eval
+#reload(cv2)
+#from eval.MSRA_eval import eval as MSRA_eval
 from rotation.rt_test import r_im_detect
 from rotation.merge_box import merge
 import rotation.rt_test_crop as rt_crop
@@ -72,8 +72,8 @@ def demo(net, image_name, gt_boxes, result_dir, conf = 0.75):
 	#dets = dets[0:20]
 	#dets[:, 4] = dets[:, 4] * 0.45
 
-	dets[:, 2] = dets[:, 2] / cfg.TEST.GT_MARGIN
-	dets[:, 3] = dets[:, 3] / cfg.TEST.GT_MARGIN
+        dets[:, 2] = dets[:, 2] / cfg.TEST.GT_MARGIN
+        dets[:, 3] = dets[:, 3] / cfg.TEST.GT_MARGIN
 
 	#if imdb_name == "icdar13":
 	#write_result_ICDAR2013(im_file, dets, CONF_THRESH, ori_result_dir, im_height, im_width)
@@ -83,7 +83,7 @@ def demo(net, image_name, gt_boxes, result_dir, conf = 0.75):
 
 	#if imdb_name == "icdar15":
 	# write_result_ICDAR(im_file, dets, CONF_THRESH, ori_result_dir, im_height, im_width)
-	results = write_result_ICDAR(im_file, dets, CONF_THRESH, result_dir, im_height, im_width)
+        results = write_result_ICDAR(im_file, dets, CONF_THRESH, result_dir, im_height, im_width)
 	
 	# write_result(im_file, dets, CONF_THRESH, ori_result_dir, im_height, im_width)
 	# result_file = write_result(im_file, dets, CONF_THRESH, result_dir, im_height, im_width)
@@ -93,7 +93,7 @@ def demo(net, image_name, gt_boxes, result_dir, conf = 0.75):
 	#
 	#print "merge done"
         #vis_detections(im, cls, dets, gt_boxes, thresh=CONF_THRESH)
-	return results
+        return results
 
 def multiscale_demo(net, im, gt_boxes, imdb_name, result_dir, ori_result_dir,left,top,right,bottom, conf = 0.75,device_id=0,):
     """Detect object classes in an image using pre-computed object proposals."""
@@ -137,7 +137,7 @@ def multiscale_demo(net, im, gt_boxes, imdb_name, result_dir, ori_result_dir,lef
                           cls_scores[:, np.newaxis])).astype(np.float32)
         keep = rotate_gpu_nms(dets, NMS_THRESH,device_id) # D
         dets = dets[keep, :]
-	return dets
+        return dets
 
 def rrpn_test_crop(day, exp, model_name, mode, gpu_id):
 
@@ -147,8 +147,8 @@ def rrpn_test_crop(day, exp, model_name, mode, gpu_id):
     gt_boxes = []
     
     for rdb in roidb:
-	im_names.append(rdb['image'])
-	gt_boxes.append([0,0,0,0,0])
+        im_names.append(rdb['image'])
+        gt_boxes.append([0,0,0,0,0])
     caffe.set_mode_gpu()
     caffe.set_device(gpu_id)
     
@@ -171,59 +171,59 @@ def rrpn_test_crop(day, exp, model_name, mode, gpu_id):
     net = caffe.Net(prototxt, modelHome+'/'+model_name, caffe.TEST)
     for im_idx in range(len(im_names)):	
     	im = cv2.imread(im_names[im_idx])
-	im_height =im.shape[0]
-	im_width = im.shape[1]
+        im_height =im.shape[0]
+        im_width = im.shape[1]
         
 
-	dets = multiscale_demo(net, im, gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	#lt
-	_dets = multiscale_demo(net, im[0:im_height/2,0:im_width/2,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	dets = np.vstack((dets,_dets))
-	#bt	
-	_dets = multiscale_demo(net, im[im_height/2:,0:im_width/2,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,1]+=im_height/2
-	dets = np.vstack((dets,_dets))
-	#rt
-	_dets = multiscale_demo(net, im[0:im_height/2,im_width/2:,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,0]+=im_width/2
-	dets = np.vstack((dets,_dets))
-	#rb
-	_dets = multiscale_demo(net, im[im_height/2:,im_width/2:,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,0]+=im_width/2
-	_dets[:,1]+=im_height/2
-	dets = np.vstack((dets,_dets))
-	#mt
-	_dets = multiscale_demo(net, im[0:im_height/2,im_width/4:3*im_width/4,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,0]+=im_width/4
-	dets = np.vstack((dets,_dets))
-	#mb
-	_dets = multiscale_demo(net, im[im_height/2:,im_width/4:3*im_width/4,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,0]+=im_width/4
-	_dets[:,1]+=im_height/2
-	dets = np.vstack((dets,_dets))
-	#ml
-	_dets = multiscale_demo(net, im[im_height/4:3*im_height/4,0:im_width/2,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,1]+=im_height/4
-	dets = np.vstack((dets,_dets))
-	#mr
-	_dets = multiscale_demo(net, im[im_height/4:3*im_height/4,im_width/2:,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,0]+=im_width/2
-	_dets[:,1]+=im_height/4
-	dets = np.vstack((dets,_dets))
-	#mm
-	_dets = multiscale_demo(net, im[im_height/4:3*im_height/4,im_width/4:3*im_width/4,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
-	_dets[:,0]+=im_width/4
-	_dets[:,1]+=im_height/4
-	dets = np.vstack((dets,_dets))
-	keep = rotate_gpu_nms(dets, 0.3,gpu_id) # D
+        dets = multiscale_demo(net, im, gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+	    #lt
+        _dets = multiscale_demo(net, im[0:im_height/2,0:im_width/2,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        dets = np.vstack((dets,_dets))
+	    #bt	
+        _dets = multiscale_demo(net, im[im_height/2:,0:im_width/2,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,1]+=im_height/2
+        dets = np.vstack((dets,_dets))
+	    #rt
+        _dets = multiscale_demo(net, im[0:im_height/2,im_width/2:,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,0]+=im_width/2
+        dets = np.vstack((dets,_dets))
+	    #rb
+        _dets = multiscale_demo(net, im[im_height/2:,im_width/2:,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,0]+=im_width/2
+        _dets[:,1]+=im_height/2
+        dets = np.vstack((dets,_dets))
+	    #mt
+        _dets = multiscale_demo(net, im[0:im_height/2,im_width/4:3*im_width/4,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,0]+=im_width/4
+        dets = np.vstack((dets,_dets))
+	    #mb
+        _dets = multiscale_demo(net, im[im_height/2:,im_width/4:3*im_width/4,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,0]+=im_width/4
+        _dets[:,1]+=im_height/2
+        dets = np.vstack((dets,_dets))
+	    #ml
+        _dets = multiscale_demo(net, im[im_height/4:3*im_height/4,0:im_width/2,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,1]+=im_height/4
+        dets = np.vstack((dets,_dets))
+	    #mr
+        _dets = multiscale_demo(net, im[im_height/4:3*im_height/4,im_width/2:,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,0]+=im_width/2
+        _dets[:,1]+=im_height/4
+        dets = np.vstack((dets,_dets))
+	    #mm
+        _dets = multiscale_demo(net, im[im_height/4:3*im_height/4,im_width/4:3*im_width/4,:], gt_boxes[im_idx], imdb_name, output_dir, output_dir,0,0,im_width,im_height,0.5,gpu_id)
+        _dets[:,0]+=im_width/4
+        _dets[:,1]+=im_height/4
+        dets = np.vstack((dets,_dets))
+        keep = rotate_gpu_nms(dets, 0.3,gpu_id) # D
         dets = dets[keep, :]
-	#dets = dets[0:20]
+	    #dets = dets[0:20]
 	#dets[:, 4] = dets[:, 4] * 0.45
 
-	dets[:, 2] = dets[:, 2] / cfg.TEST.GT_MARGIN
-	dets[:, 3] = dets[:, 3] / cfg.TEST.GT_MARGIN
+        dets[:, 2] = dets[:, 2] / cfg.TEST.GT_MARGIN
+        dets[:, 3] = dets[:, 3] / cfg.TEST.GT_MARGIN
 	
-	CONF_THRESH = 0.75
+        CONF_THRESH = 0.75
 		
 
         write_result(im_names[im_idx], dets, CONF_THRESH, ori_result_dir, im_height, im_width)
@@ -275,69 +275,69 @@ def write_result_ICDAR(im_file, dets, threshold, result_dir, height, width):
     return_bboxes = []
 
     if not os.path.isfile(result):
-	os.mknod(result)
+        os.mknod(result)
     result_file = open(result, "w")
 
     result_str = ""
 
     for idx in range(len(dets)):
-	cx,cy,h,w,angle = dets[idx][0:5]
-	lt = [cx - w/2, cy - h/2,1]
-	rt = [cx + w/2, cy - h/2,1]
-	lb = [cx - w/2, cy + h/2,1]
-	rb = [cx + w/2, cy + h/2,1]
+        cx,cy,h,w,angle = dets[idx][0:5]
+        lt = [cx - w/2, cy - h/2,1]
+        rt = [cx + w/2, cy - h/2,1]
+        lb = [cx - w/2, cy + h/2,1]
+        rb = [cx + w/2, cy + h/2,1]
 
 
-	pts = []
+        pts = []
 
-	#angle = angle * 0.45
+	    #angle = angle * 0.45
 
-	pts.append(lt)
-	pts.append(rt)
-	pts.append(rb)
-	pts.append(lb)
+        pts.append(lt)
+        pts.append(rt)
+        pts.append(rb)
+        pts.append(lb)
 
-	angle = -angle
+        angle = -angle
 
-	#if angle != 0:
-	cos_cita = np.cos(np.pi / 180 * angle)
-	sin_cita = np.sin(np.pi / 180 * angle)
+	    #if angle != 0:
+        cos_cita = np.cos(np.pi / 180 * angle)
+        sin_cita = np.sin(np.pi / 180 * angle)
 
 	#else :
 	#	cos_cita = 1
 	#	sin_cita = 0
 
-	M0 = np.array([[1,0,0],[0,1,0],[-cx,-cy,1]])
-	M1 = np.array([[cos_cita, sin_cita,0], [-sin_cita, cos_cita,0],[0,0,1]])
-	M2 = np.array([[1,0,0],[0,1,0],[cx,cy,1]])
-	rotation_matrix = M0.dot(M1).dot(M2)
+        M0 = np.array([[1,0,0],[0,1,0],[-cx,-cy,1]])
+        M1 = np.array([[cos_cita, sin_cita,0], [-sin_cita, cos_cita,0],[0,0,1]])
+        M2 = np.array([[1,0,0],[0,1,0],[cx,cy,1]])
+        rotation_matrix = M0.dot(M1).dot(M2)
 
-	rotated_pts = np.dot(np.array(pts), rotation_matrix)
+        rotated_pts = np.dot(np.array(pts), rotation_matrix)
 
 
 	#print im
 	#print im.shape
 #			im = im.transpose(2,0,1)
 
-	det_str = str(int(rotated_pts[0][0])) + "," + str(int(rotated_pts[0][1])) + "," + \
-	 	str(int(rotated_pts[1][0])) + "," + str(int(rotated_pts[1][1])) + "," + \
-	 	str(int(rotated_pts[2][0])) + "," + str(int(rotated_pts[2][1])) + "," + \
-	 	str(int(rotated_pts[3][0])) + "," + str(int(rotated_pts[3][1])) + "\r\n"
+        det_str = str(int(rotated_pts[0][0])) + "," + str(int(rotated_pts[0][1])) + "," + \
+	     	str(int(rotated_pts[1][0])) + "," + str(int(rotated_pts[1][1])) + "," + \
+	     	str(int(rotated_pts[2][0])) + "," + str(int(rotated_pts[2][1])) + "," + \
+	     	str(int(rotated_pts[3][0])) + "," + str(int(rotated_pts[3][1])) + "\r\n"
 
 
 
 
 	#rotated_pts = rotated_pts[:,0:2]
 	
-	if (dets[idx][5] > threshold):
-		rotated_pts = over_bound_handle(rotated_pts, height, width)
-		det_str = str(int(rotated_pts[0][0])) + "," + str(int(rotated_pts[0][1])) + "," + \
-		str(int(rotated_pts[1][0])) + "," + str(int(rotated_pts[1][1])) + "," + \
-	 	str(int(rotated_pts[2][0])) + "," + str(int(rotated_pts[2][1])) + "," + \
-	 	str(int(rotated_pts[3][0])) + "," + str(int(rotated_pts[3][1])) + "\r\n"
+        if (dets[idx][5] > threshold):
+            rotated_pts = over_bound_handle(rotated_pts, height, width)
+            det_str = str(int(rotated_pts[0][0])) + "," + str(int(rotated_pts[0][1])) + "," + \
+            str(int(rotated_pts[1][0])) + "," + str(int(rotated_pts[1][1])) + "," + \
+	     	str(int(rotated_pts[2][0])) + "," + str(int(rotated_pts[2][1])) + "," + \
+	     	str(int(rotated_pts[3][0])) + "," + str(int(rotated_pts[3][1])) + "\r\n"
 	
-		result_str = result_str + det_str
-		return_bboxes.append(dets[idx])
+            result_str = result_str + det_str
+            return_bboxes.append(dets[idx])
 
 	#print rotated_pts.shape
 
@@ -360,65 +360,65 @@ def write_result_ICDAR2013(im_file, dets, threshold, result_dir, height, width):
     result = os.path.join(result_dir, "res_" + file_name_str + ".txt")    
 
     if not os.path.isfile(result):
-	os.mknod(result)
+        os.mknod(result)
     result_file = open(result, "w")
 
     result_str = ""
 
     for idx in range(len(dets)):
-	cx,cy,h,w,angle = dets[idx][0:5]
-	lt = [cx - w/2, cy - h/2,1]
-	rt = [cx + w/2, cy - h/2,1]
-	lb = [cx - w/2, cy + h/2,1]
-	rb = [cx + w/2, cy + h/2,1]
+    	cx,cy,h,w,angle = dets[idx][0:5]
+    	lt = [cx - w/2, cy - h/2,1]
+    	rt = [cx + w/2, cy - h/2,1]
+    	lb = [cx - w/2, cy + h/2,1]
+    	rb = [cx + w/2, cy + h/2,1]
 
 
-	pts = []
+        pts = []
 
 	#angle = angle * 0.45
 
-	pts.append(lt)
-	pts.append(rt)
-	pts.append(rb)
-	pts.append(lb)
+        pts.append(lt)
+        pts.append(rt)
+        pts.append(rb)
+        pts.append(lb)
 
-	angle = -angle
+        angle = -angle
 
 	#if angle != 0:
-	cos_cita = np.cos(np.pi / 180 * angle)
-	sin_cita = np.sin(np.pi / 180 * angle)
+        cos_cita = np.cos(np.pi / 180 * angle)
+        sin_cita = np.sin(np.pi / 180 * angle)
 
 	#else :
 	#	cos_cita = 1
 	#	sin_cita = 0
 
-	M0 = np.array([[1,0,0],[0,1,0],[-cx,-cy,1]])
-	M1 = np.array([[cos_cita, sin_cita,0], [-sin_cita, cos_cita,0],[0,0,1]])
-	M2 = np.array([[1,0,0],[0,1,0],[cx,cy,1]])
-	rotation_matrix = M0.dot(M1).dot(M2)
+        M0 = np.array([[1,0,0],[0,1,0],[-cx,-cy,1]])
+        M1 = np.array([[cos_cita, sin_cita,0], [-sin_cita, cos_cita,0],[0,0,1]])
+        M2 = np.array([[1,0,0],[0,1,0],[cx,cy,1]])
+        rotation_matrix = M0.dot(M1).dot(M2)
 
-	rotated_pts = np.dot(np.array(pts), rotation_matrix)
+        rotated_pts = np.dot(np.array(pts), rotation_matrix)
 
 
 	#print im
 	#print im.shape
 #			im = im.transpose(2,0,1)
 
-	rotated_pts = over_bound_handle(rotated_pts, height, width)
+        rotated_pts = over_bound_handle(rotated_pts, height, width)
 
-	left = min(int(rotated_pts[0][0]), int(rotated_pts[1][0]), int(rotated_pts[2][0]), int(rotated_pts[3][0]))
-	top = min(int(rotated_pts[0][1]), int(rotated_pts[1][1]), int(rotated_pts[2][1]), int(rotated_pts[3][1]))
-	right = max(int(rotated_pts[0][0]), int(rotated_pts[1][0]), int(rotated_pts[2][0]), int(rotated_pts[3][0]))
-	bottom = max(int(rotated_pts[0][1]), int(rotated_pts[1][1]), int(rotated_pts[2][1]), int(rotated_pts[3][1]))
+        left = min(int(rotated_pts[0][0]), int(rotated_pts[1][0]), int(rotated_pts[2][0]), int(rotated_pts[3][0]))
+        top = min(int(rotated_pts[0][1]), int(rotated_pts[1][1]), int(rotated_pts[2][1]), int(rotated_pts[3][1]))
+        right = max(int(rotated_pts[0][0]), int(rotated_pts[1][0]), int(rotated_pts[2][0]), int(rotated_pts[3][0]))
+        bottom = max(int(rotated_pts[0][1]), int(rotated_pts[1][1]), int(rotated_pts[2][1]), int(rotated_pts[3][1]))
 
-	if (dets[idx][5] > threshold):
+        if (dets[idx][5] > threshold):
 
-		det_str = str(left) + "," + \
-		 	str(top) + "," + \
-		 	str(right) + "," + \
-		 	str(bottom) + "\r\n"
+        	det_str = str(left) + "," + \
+        	 	str(top) + "," + \
+        	 	str(right) + "," + \
+        	 	str(bottom) + "\r\n"
 
-		result_str = result_str + det_str
+        	result_str = result_str + det_str
 
 	
     	#print dets[idx][5], threshold
@@ -496,18 +496,18 @@ def write_result(im_file, dets, threshold, result_dir, im_height, im_width):
     #print "result_name", result
 
     if not os.path.isfile(result):
-	os.mknod(result)
+        os.mknod(result)
     result_file = open(result, "w")
 	    
     result_str = ""
     for det in dets:
-	det_str = ""
-	if det[5] > threshold:
+    	det_str = ""
+    	if det[5] > threshold:
 	    #print det[len(det) - 1]
-	    for ind in range(len(det) - 1):
-	        det_str = det_str + str(det[ind]) + " "
-	    det_str = det_str + str(det[len(det) - 1]) + "\n"
-	    result_str = result_str + det_str
+    	    for ind in range(len(det) - 1):
+    	        det_str = det_str + str(det[ind]) + " "
+    	    det_str = det_str + str(det[len(det) - 1]) + "\n"
+    	    result_str = result_str + det_str
 
     result_file.write(result_str)
     result_file.close()
@@ -546,7 +546,7 @@ if __name__ == '__main__':
     prototxt = os.path.join(cfg.MODELS_DIR, NETS[args.demo_net][0],
                             'faster_rcnn_alt_opt', 'faster_rcnn_test.pt')
     if args.demo_net == "rrpn":
-	prototxt = os.path.join(cfg.RRPN_MODELS_DIR, NETS[args.demo_net][0],
+    	prototxt = os.path.join(cfg.RRPN_MODELS_DIR, NETS[args.demo_net][0],
                             'faster_rcnn_end2end', 'test.prototxt')
 
     
