@@ -145,7 +145,7 @@ Any question about this project please send message to Jianqi Ma(mjq11302010044@
 
 
 编译过程问题：
-1：python版本为python2.7
+1：配置python2.7,opencv3.1,cuda:384.130, cudnn:5.1
 2：可以直接去掉reload函数
 3:原版代码运行前向，显存3140M。
  
